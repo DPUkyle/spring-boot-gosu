@@ -73,6 +73,8 @@
                             <mainClass>
                                 play.FileList
                             </mainClass>
+                            <!-- include system-scope dependency on tools.jar -->
+                            <includeSystemScope>true</includeSystemScope>
                         </configuration>
                     </execution>
                 </executions>
@@ -157,5 +159,25 @@
       </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>internal.tools-jar</id>
+            <activation>
+                <file>
+                    <exists>${java.home}/../lib/tools.jar</exists>
+                </file>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.8.0</version>
+                    <scope>system</scope>
+                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
 </project>
