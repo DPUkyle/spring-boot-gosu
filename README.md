@@ -9,5 +9,5 @@ Two key tweaks to the spring-boot-maven-plugin were necessary:
 
 ## Execution
 Run these steps:
-* $ mvn clean package
-* $ java -jar target/helloworld-spring-boot.jar
+* `$ mvn clean package`
+* `$ java -jar target/helloworld-spring-boot.jar`
