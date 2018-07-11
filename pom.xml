@@ -75,6 +75,13 @@
                             </mainClass>
                             <!-- include system-scope dependency on tools.jar -->
                             <includeSystemScope>true</includeSystemScope>
+                            <!-- dependencies containing Gosu enhancements must be unpacked before using -->
+                            <requiresUnpack>
+                                <dependency>
+                                    <groupId>org.gosu-lang.gosu</groupId>
+                                    <artifactId>gosu-core-api</artifactId>
+                                </dependency>
+                            </requiresUnpack>
                         </configuration>
                     </execution>
                 </executions>
@@ -146,17 +153,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Contains-Sources>gs,gsx</Contains-Sources>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
         </plugins>
     </build>
 
